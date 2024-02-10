@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0px auto 30px auto;
+}
+
+.item {
+    width: min-content;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}

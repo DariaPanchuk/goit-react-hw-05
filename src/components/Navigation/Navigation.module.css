@@ -1,0 +1,20 @@
+.link {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 2px 2px 4px #111;
+}
+
+.active {
+    color: #D46A6A;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+}

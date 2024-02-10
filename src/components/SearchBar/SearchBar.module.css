@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 350px;
+    padding: 15px;
+    font-size: 20px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin-right: 5px;
+}
+
+.button {
+    background: none;
+    border: none;
+}
+
+.button:hover,
+.button:focus {
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.card {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.author {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    color: #D5C8BD;
+}
+
+.content {
+    font-size: 15px;
+    line-height: 1.5;
+}

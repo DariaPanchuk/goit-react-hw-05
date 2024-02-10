@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.button {
+    cursor: pointer;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    color: #D46A6A;
+    text-shadow: 2px 2px 4px #111;
+    background: none;
+    border: none;
+}

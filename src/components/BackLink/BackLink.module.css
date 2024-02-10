@@ -1,0 +1,13 @@
+.container {
+    font-size: 20px;
+    color: #D5C8BD;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-bottom: 20px;
+}
+
+.container:hover,
+.container:focus {
+    cursor: pointer;
+    color: #D46A6A;
+    text-shadow: 2px 2px 4px #111;
+}

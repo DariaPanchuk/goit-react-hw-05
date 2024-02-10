@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    gap: 30px;
+    padding: 0px 30px;
+}
+
+.title {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    color: #D46A6A;
+    text-shadow: 2px 2px 4px #111;
+}
+
+.img {
+    height: fit-content;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item{
+    width: 800px;
+}
+
+.detailName {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    color: #D5C8BD;
+}
+
+.detailItem {
+    line-height: 1.5;
+}
+
+.list {
+    display: flex;
+    gap: 5px;
+}
+
+.links {
+    composes: title;
+    font-size: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.active {
+    color: #D5C8BD;
+}
