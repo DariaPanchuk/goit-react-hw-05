@@ -5,16 +5,12 @@ import { IconContext } from "react-icons";
 import css from './SearchBar.module.css';
 
 export const SearchBar = ({ value, onSearch }) => {
-    const [values, setValues] = useState(value);
-
-    const handleChange = (evt) => {
-        setValues(evt.target.value);
-    };
-
     const handleSubmit = evt => {
         evt.preventDefault();
 
-        if (evt.target.elements.query.value === "") {
+        const { value } = evt.target.elements.query;
+
+        if (value === "") {
             toast.error('This is an empty field!', {
                 duration: 2000,
                 position: 'bottom-center',
@@ -22,7 +18,7 @@ export const SearchBar = ({ value, onSearch }) => {
             return;
         }
 
-        onSearch(values);
+        onSearch(value);
     }
 
     return (
@@ -34,8 +30,7 @@ export const SearchBar = ({ value, onSearch }) => {
                     autoFocus
                     placeholder="Search movie"
                     name="query"
-                    value={value}
-                    onChange={handleChange}
+                    defaultValue={value}
                     className={css.input}
                 />
                 <IconContext.Provider value={{ size: "2em", color: "#D5C8BD" }}>
