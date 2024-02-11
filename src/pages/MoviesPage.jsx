@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { nanoid } from 'nanoid';
 import { fetchByQuery } from '../api';
 import { Title } from '../components/Title/Title';
 import { MoviesList } from '../components/MoviesList/MoviesList';
@@ -11,7 +10,6 @@ import { SearchBar } from '../components/SearchBar/SearchBar';
 import { LoadMore } from '../components/LoadMore/LoadMore';
 
 export default function MoviesPage() {
-    const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [load, setLoad] = useState(false);
@@ -23,11 +21,15 @@ export default function MoviesPage() {
     const totalResults = useRef(0);
 
     const handleSearch = async newQuery => {
-        const id = nanoid(5);
-        setQuery(`${id}-${newQuery}`);
+        if (movieName === newQuery) {
+            toast.error('Results already on the screen!', {
+                duration: 2000,
+                position: 'bottom-center',
+            });
+            return
+        }
         setMovies([]);
         setPage(1);
-        params.set('query', newQuery.split('-')[1]);
         setParams({query: newQuery});
     }
 

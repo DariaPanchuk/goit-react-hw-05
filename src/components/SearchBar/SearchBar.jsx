@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineSearch } from "react-icons/ai";
 import { IconContext } from "react-icons";
