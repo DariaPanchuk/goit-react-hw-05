@@ -19,6 +19,7 @@ export default function MoviesPage() {
     const movieName = params.get('query') ?? '';
 
     const totalResults = useRef(0);
+    const totalPages= useRef(0);
 
     const handleSearch = async newQuery => {
         if (movieName === newQuery) {
@@ -48,6 +49,7 @@ export default function MoviesPage() {
                     abortController: controller,
                 });
                 setMovies(prevMovies => [...prevMovies, ...fetchedData.results]);
+                totalPages.current = fetchedData.total_pages;
                 totalResults.current = fetchedData.total_results;
                 if (totalResults.current === 0) {
                     toast.error('Oops, please try another word!', {
@@ -80,7 +82,7 @@ export default function MoviesPage() {
             {error && <ErrorMessage />}
             <SearchBar value={movieName} onSearch={handleSearch} />
             {movies.length > 0 && <MoviesList movies={movies} />}
-            {movies.length > 0 && !load && (<LoadMore onClick={handleClick} />)}
+            {movies.length > 0 && !load && page !== totalPages.current && (<LoadMore onClick={handleClick} />)}
         </div>
     )
 }
