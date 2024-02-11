@@ -1,9 +1,21 @@
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineSearch } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import css from './SearchBar.module.css';
 
 export const SearchBar = ({ value, onSearch }) => {
+    const [values, setValues] = useState({
+        query: "",
+    });
+
+    const handleChange = (evt) => {
+        setValues({
+            ...values,
+            [evt.target.name]: evt.target.value,
+        });
+    };
+
     const handleSubmit = evt => {
         evt.preventDefault();
 
@@ -28,8 +40,8 @@ export const SearchBar = ({ value, onSearch }) => {
                     autoFocus
                     placeholder="Search movie"
                     name="query"
-                    // value={value}
-                    // onChange={onSearch}
+                    defaultValue={value}
+                    onChange={handleChange}
                     className={css.input}
                 />
                 <IconContext.Provider value={{ size: "2em", color: "#D5C8BD" }}>

@@ -28,13 +28,13 @@ export default function MoviesPage() {
         setMovies([]);
         setPage(1);
         params.set('query', newQuery.split('-')[1]);
-        setParams(params);
+        setParams({query: newQuery});
     }
 
     useEffect(() => {
         const controller = new AbortController();
 
-        if (query === "") {
+        if (movieName === "") {
             return
         }   
 
@@ -42,12 +42,10 @@ export default function MoviesPage() {
             try {
                 setLoad(true);
                 setError(false);
-                const fetchedData= await fetchByQuery(query.split('-')[1], page, {
+                const fetchedData= await fetchByQuery(movieName, page, {
                     abortController: controller,
                 });
                 setMovies(prevMovies => [...prevMovies, ...fetchedData.results]);
-                params.set('query', query.split('-')[1]);
-                setParams(params);
                 totalResults.current = fetchedData.total_results;
                 if (totalResults.current === 0) {
                     toast.error('Oops, please try another word!', {
@@ -67,7 +65,7 @@ export default function MoviesPage() {
         return () => {
             controller.abort();
         };
-    }, [query, page, params, setParams]);
+    }, [page, movieName]);
     
     const handleClick = () => {
         setPage(page + 1);
