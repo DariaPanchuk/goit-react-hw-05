@@ -5,15 +5,10 @@ import { IconContext } from "react-icons";
 import css from './SearchBar.module.css';
 
 export const SearchBar = ({ value, onSearch }) => {
-    const [values, setValues] = useState({
-        query: "",
-    });
+    const [values, setValues] = useState(value);
 
     const handleChange = (evt) => {
-        setValues({
-            ...values,
-            [evt.target.name]: evt.target.value,
-        });
+        setValues(evt.target.value);
     };
 
     const handleSubmit = evt => {
@@ -27,8 +22,7 @@ export const SearchBar = ({ value, onSearch }) => {
             return;
         }
 
-        onSearch(evt.target.elements.query.value);
-        evt.target.reset();
+        onSearch(values);
     }
 
     return (
@@ -40,7 +34,7 @@ export const SearchBar = ({ value, onSearch }) => {
                     autoFocus
                     placeholder="Search movie"
                     name="query"
-                    defaultValue={value}
+                    value={value}
                     onChange={handleChange}
                     className={css.input}
                 />
